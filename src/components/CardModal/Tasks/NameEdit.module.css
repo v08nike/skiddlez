@@ -1,0 +1,25 @@
+:global(#app) .controls {
+  clear: both;
+  margin-top: 6px;
+}
+
+:global(#app) .field {
+  background: #fff;
+  border: 1px solid rgba(9, 30, 66, 0.13);
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #17394d;
+  display: block;
+  font-size: 14px;
+  width: 100%;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 8px 12px;
+  resize: none;
+}
+
+:global(#app) .field:focus {
+  outline: none;
+}
+/*# sourceMappingURL=NameEdit.module.css.map */

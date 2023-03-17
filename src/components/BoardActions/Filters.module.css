@@ -1,0 +1,45 @@
+:global(#app) .filter {
+  margin-right: 10px;
+}
+
+:global(#app) .filterButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  padding: 0;
+}
+
+:global(#app) .filterItem {
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+  margin-right: 4px;
+  max-width: 190px;
+  vertical-align: top;
+}
+
+:global(#app) .filterLabel {
+  background: rgba(0, 0, 0, 0.24);
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 2px 8px;
+}
+
+:global(#app) .filterLabel:hover {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+:global(#app) .filterTitle {
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 2px 12px;
+}
+/*# sourceMappingURL=Filters.module.css.map */

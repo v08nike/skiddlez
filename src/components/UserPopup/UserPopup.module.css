@@ -1,0 +1,10 @@
+:global(#app) .menu {
+  margin: -7px -12px -5px;
+  width: calc(100% + 24px);
+}
+
+:global(#app) .menuItem {
+  margin: 0;
+  padding-left: 14px;
+}
+/*# sourceMappingURL=UserPopup.module.css.map */

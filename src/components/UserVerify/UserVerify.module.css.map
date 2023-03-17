@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEE,OAFM,CAAA,IAAI,EAEV,aAAa,CAAC;EACZ,MAAM,EAAE,MAAM;EACd,SAAS,EAAE,KAAK;EAChB,OAAO,EAAE,MAAM;CAChB",
+    "sources": [
+        "UserVerify.module.scss"
+    ],
+    "names": [],
+    "file": "UserVerify.module.css"
+}

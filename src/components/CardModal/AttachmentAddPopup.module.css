@@ -1,0 +1,21 @@
+:global(#app) .divider {
+  background: #eee;
+  border: 0;
+  height: 1px;
+  margin-bottom: 8px;
+}
+
+:global(#app) .menu {
+  margin: -7px -12px -5px;
+  width: calc(100% + 24px);
+}
+
+:global(#app) .menuItem {
+  margin: 0;
+  padding-left: 14px;
+}
+
+:global(#app) .tip {
+  opacity: 0.5;
+}
+/*# sourceMappingURL=AttachmentAddPopup.module.css.map */

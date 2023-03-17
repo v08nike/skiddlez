@@ -1,0 +1,175 @@
+:global(#app) .addButton {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #131419;
+  background-color: #EBECF0;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:global(#app) .addButton:hover {
+  background: rgba(34, 36, 38, 0.3);
+}
+
+:global(#app) .editButton {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 50%;
+  color: #fff;
+  line-height: 32px;
+  margin-right: 0;
+  opacity: 1;
+  padding: 0;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 32px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:global(#app) .editButton a {
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:global(#app) .editButton i {
+  color: transparent;
+}
+
+:global(#app) .editButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+:global(#app) .editButton:hover i {
+  color: #fff;
+}
+
+:global(#app) .editButton:hover a {
+  color: #fff;
+}
+
+:global(#app) .link {
+  color: #636469;
+  display: block;
+  line-height: 20px;
+  padding: 10px 34px 6px 14px;
+  text-overflow: ellipsis;
+  border: 1px solid #636469;
+  border-radius: 3px 3px 0px 0px;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+:global(#app) .tab {
+  border-radius: 3px 3px 0 0;
+  min-width: 100px;
+  position: relative;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:global(#app) .tab a {
+  color: #636469;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:global(#app) .tab:hover {
+  background: #636469;
+}
+
+:global(#app) .tab:hover a {
+  color: #fff;
+}
+
+:global(#app) .tab:hover .target {
+  opacity: 1;
+}
+
+:global(#app) .bg-dark .tab a {
+  color: #fff;
+}
+
+:global(#app) .tabActive {
+  background: #636469;
+}
+
+:global(#app) .tabActive a {
+  color: #FFF;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:global(#app) .tabActive:hover {
+  background: #636469;
+}
+
+:global(#app) .tabWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+:global(#app) .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 38px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+:global(#app) .tabsWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  height: 56px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+
+:global(#app) .tabsWrapper:hover {
+  height: 38px;
+}
+
+:global(#app) .tabsWrapper::-webkit-scrollbar {
+  height: 5px;
+}
+
+:global(#app) .tabsWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+:global(#app) .tabsWrapper::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
+:global(#app) .board-wrapper {
+  border-bottom: 2px solid #636469;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 38px;
+  overflow: hidden;
+}
+
+:global(#app) .board-wrapper:hover {
+  border-bottom: 0;
+}
+/*# sourceMappingURL=Boards.module.css.map */

@@ -1,0 +1,3739 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger Json",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://beta.skiddlez.com/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "create"
+    },
+    {
+      "name": "verify"
+    },
+    {
+      "name": "google"
+    },
+    {
+      "name": "register"
+    },
+    {
+      "name": "index"
+    },
+    {
+      "name": "close"
+    },
+    {
+      "name": "show"
+    },
+    {
+      "name": "update"
+    },
+    {
+      "name": "delete"
+    },
+    {
+      "name": "update-email"
+    },
+    {
+      "name": "update-password"
+    },
+    {
+      "name": "update-username"
+    },
+    {
+      "name": "update-avatar"
+    },
+    {
+      "name": "update-background-image"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "access": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/access-without-required-constraint"
+          },
+          {
+            "required": [
+              "type",
+              "data",
+              "authorizedBy"
+            ]
+          }
+        ]
+      },
+      "access-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Access**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "type": {
+            "type": "string",
+            "enum": [
+              "isAdminChange",
+              "isRoleIdChange"
+            ]
+          },
+          "data": {},
+          "authorizedBy": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "action": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/action-without-required-constraint"
+          },
+          {
+            "required": [
+              "type",
+              "data",
+              "cardId",
+              "userId"
+            ]
+          }
+        ]
+      },
+      "action-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Action**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "type": {
+            "type": "string",
+            "enum": [
+              "createCard",
+              "moveCard",
+              "commentCard"
+            ]
+          },
+          "data": {},
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "attachment": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/attachment-without-required-constraint"
+          },
+          {
+            "required": [
+              "dirname",
+              "filename",
+              "isImage",
+              "name",
+              "cardId",
+              "userId"
+            ]
+          }
+        ]
+      },
+      "attachment-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Attachment**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "dirname": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "isImage": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          },
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "board": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/board-without-required-constraint"
+          },
+          {
+            "required": [
+              "type",
+              "position",
+              "name",
+              "projectId"
+            ]
+          }
+        ]
+      },
+      "board-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Board**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "type": {
+            "type": "string",
+            "enum": [
+              "kanban",
+              "collection"
+            ]
+          },
+          "position": {
+            "type": "number",
+            "format": "double"
+          },
+          "name": {
+            "type": "string"
+          },
+          "projectId": {
+            "description": "JSON dictionary representing the **project** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/project"
+              }
+            ]
+          },
+          "lists": {
+            "description": "Array of **list**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/list"
+            }
+          },
+          "labels": {
+            "description": "Array of **label**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/label"
+            }
+          }
+        }
+      },
+      "card": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/card-without-required-constraint"
+          },
+          {
+            "required": [
+              "name",
+              "boardId"
+            ]
+          }
+        ]
+      },
+      "card-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Card**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "position": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "dueDate": {},
+          "timer": {},
+          "boardId": {
+            "description": "JSON dictionary representing the **board** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/board"
+              }
+            ]
+          },
+          "listId": {
+            "description": "JSON dictionary representing the **list** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/list"
+              }
+            ]
+          },
+          "coverAttachmentId": {
+            "description": "JSON dictionary representing the **attachment** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/attachment"
+              }
+            ]
+          },
+          "subscriptionUsers": {
+            "description": "Array of **user**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/user"
+            }
+          },
+          "membershipUsers": {
+            "description": "Array of **user**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/user"
+            }
+          },
+          "labels": {
+            "description": "Array of **label**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/label"
+            }
+          },
+          "tasks": {
+            "description": "Array of **task**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/task"
+            }
+          },
+          "attachments": {
+            "description": "Array of **attachment**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/attachment"
+            }
+          },
+          "actions": {
+            "description": "Array of **action**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/action"
+            }
+          }
+        }
+      },
+      "cardlabel": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/cardlabel-without-required-constraint"
+          },
+          {
+            "required": [
+              "cardId",
+              "labelId"
+            ]
+          }
+        ]
+      },
+      "cardlabel-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **CardLabel**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          },
+          "labelId": {
+            "description": "JSON dictionary representing the **label** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/label"
+              }
+            ]
+          }
+        }
+      },
+      "cardmembership": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/cardmembership-without-required-constraint"
+          },
+          {
+            "required": [
+              "cardId",
+              "userId"
+            ]
+          }
+        ]
+      },
+      "cardmembership-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **CardMembership**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "cardsubscription": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/cardsubscription-without-required-constraint"
+          },
+          {
+            "required": [
+              "cardId",
+              "userId"
+            ]
+          }
+        ]
+      },
+      "cardsubscription-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **CardSubscription**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "isPermanent": {
+            "type": "boolean",
+            "default": true,
+            "example": true
+          },
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "label": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/label-without-required-constraint"
+          },
+          {
+            "required": [
+              "color",
+              "boardId"
+            ]
+          }
+        ]
+      },
+      "label-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Label**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "enum": [
+              "berry-red",
+              "pumpkin-orange",
+              "lagoon-blue",
+              "pink-tulip",
+              "light-mud",
+              "orange-peel",
+              "bright-moss",
+              "antique-blue",
+              "dark-granite",
+              "lagune-blue",
+              "sunny-grass",
+              "morning-sky",
+              "light-orange",
+              "midnight-blue",
+              "tank-green",
+              "gun-metal",
+              "wet-moss",
+              "red-burgundy",
+              "light-concrete",
+              "apricot-red",
+              "desert-sand",
+              "navy-blue",
+              "egg-yellow",
+              "coral-green",
+              "light-cocoa"
+            ]
+          },
+          "boardId": {
+            "description": "JSON dictionary representing the **board** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/board"
+              }
+            ]
+          },
+          "cards": {
+            "description": "Array of **card**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/card"
+            }
+          }
+        }
+      },
+      "list": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/list-without-required-constraint"
+          },
+          {
+            "required": [
+              "position",
+              "name",
+              "boardId"
+            ]
+          }
+        ]
+      },
+      "list-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **List**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "position": {
+            "type": "number",
+            "format": "double"
+          },
+          "name": {
+            "type": "string"
+          },
+          "boardId": {
+            "description": "JSON dictionary representing the **board** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/board"
+              }
+            ]
+          },
+          "cards": {
+            "description": "Array of **card**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/card"
+            }
+          }
+        }
+      },
+      "notification": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/notification-without-required-constraint"
+          },
+          {
+            "required": [
+              "userId",
+              "actionId",
+              "cardId"
+            ]
+          }
+        ]
+      },
+      "notification-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Notification**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "isRead": {
+            "type": "boolean",
+            "default": false
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          },
+          "actionId": {
+            "description": "JSON dictionary representing the **action** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/action"
+              }
+            ]
+          },
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          }
+        }
+      },
+      "permission": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/permission-without-required-constraint"
+          },
+          {
+            "required": [
+              "name"
+            ]
+          }
+        ]
+      },
+      "permission-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Permission**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "name": {
+            "type": "string"
+          },
+          "roles": {
+            "description": "Array of **role**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/role"
+            }
+          }
+        }
+      },
+      "project": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/project-without-required-constraint"
+          },
+          {
+            "required": [
+              "name"
+            ]
+          }
+        ]
+      },
+      "project-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Project**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "status": {
+            "type": "number",
+            "format": "double",
+            "default": 1,
+            "example": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dueDate": {},
+          "background": {},
+          "backgroundImageDirname": {
+            "type": "string",
+            "nullable": true
+          },
+          "membershipUsers": {
+            "description": "Array of **user**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/user"
+            }
+          },
+          "boards": {
+            "description": "Array of **board**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/board"
+            }
+          }
+        }
+      },
+      "projectmembership": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/projectmembership-without-required-constraint"
+          },
+          {
+            "required": [
+              "projectId",
+              "userId"
+            ]
+          }
+        ]
+      },
+      "projectmembership-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **ProjectMembership**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "projectId": {
+            "description": "JSON dictionary representing the **project** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/project"
+              }
+            ]
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "projectsubscription": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/projectsubscription-without-required-constraint"
+          },
+          {
+            "required": [
+              "projectId",
+              "userId"
+            ]
+          }
+        ]
+      },
+      "projectsubscription-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **ProjectSubscription**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "isPermanent": {
+            "type": "boolean",
+            "default": true,
+            "example": true
+          },
+          "projectId": {
+            "description": "JSON dictionary representing the **project** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/project"
+              }
+            ]
+          },
+          "userId": {
+            "description": "JSON dictionary representing the **user** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/user"
+              }
+            ]
+          }
+        }
+      },
+      "role": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/role-without-required-constraint"
+          },
+          {
+            "required": [
+              "name"
+            ]
+          }
+        ]
+      },
+      "role-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Role**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "name": {
+            "type": "string"
+          },
+          "permissions": {
+            "description": "Array of **permission**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/permission"
+            }
+          }
+        }
+      },
+      "rolepermission": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/rolepermission-without-required-constraint"
+          },
+          {
+            "required": [
+              "roleId",
+              "permissionId"
+            ]
+          }
+        ]
+      },
+      "rolepermission-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **RolePermission**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "roleId": {
+            "description": "JSON dictionary representing the **role** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/role"
+              }
+            ]
+          },
+          "permissionId": {
+            "description": "JSON dictionary representing the **permission** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/permission"
+              }
+            ]
+          }
+        }
+      },
+      "task": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/task-without-required-constraint"
+          },
+          {
+            "required": [
+              "name",
+              "cardId"
+            ]
+          }
+        ]
+      },
+      "task-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **Task**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "name": {
+            "type": "string"
+          },
+          "isCompleted": {
+            "type": "boolean",
+            "default": false
+          },
+          "cardId": {
+            "description": "JSON dictionary representing the **card** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/card"
+              }
+            ]
+          }
+        }
+      },
+      "user": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/user-without-required-constraint"
+          },
+          {
+            "required": [
+              "email",
+              "password",
+              "name"
+            ]
+          }
+        ]
+      },
+      "user-without-required-constraint": {
+        "type": "object",
+        "description": "Sails ORM Model **User**",
+        "properties": {
+          "id": {
+            "type": "string",
+            "uniqueItems": true,
+            "description": "Note Sails special attributes: autoIncrement"
+          },
+          "createdAt": {},
+          "updatedAt": {},
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean",
+            "default": false
+          },
+          "roleId": {
+            "description": "JSON dictionary representing the **role** instance or FK when creating / updating / not populated",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/role"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9]+((_|\\.)?[a-zA-Z0-9])*$",
+            "nullable": true,
+            "maxLength": 16,
+            "minLength": 3
+          },
+          "avatarDirname": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "organization": {
+            "type": "string",
+            "nullable": true
+          },
+          "subscribeToOwnCards": {
+            "type": "boolean",
+            "default": false
+          },
+          "active": {
+            "type": "boolean",
+            "default": false
+          },
+          "deletedAt": {},
+          "membershipProjects": {
+            "description": "Array of **project**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/project"
+            }
+          },
+          "subscriptionCards": {
+            "description": "Array of **card**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/card"
+            }
+          },
+          "membershipCards": {
+            "description": "Array of **card**'s or array of FK's when creating / updating / not populated",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/card"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "AttributeFilterParam": {
+        "in": "query",
+        "name": "_*_",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "To filter results based on a particular attribute, specify a query parameter with the same name as the attribute defined on your model. For instance, if our `Purchase` model has an `amount` attribute, we could send `GET /purchase?amount=99.99` to return a list of $99.99 purchases."
+      },
+      "WhereQueryParam": {
+        "in": "query",
+        "name": "where",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Instead of filtering based on a specific attribute, you may instead choose to provide a `where` parameter with the WHERE piece of a [Waterline criteria](https://sailsjs.com/documentation/concepts/models-and-orm/query-language), _encoded as a JSON string_. This allows you to take advantage of `contains`, `startsWith`, and other sub-attribute criteria modifiers for more powerful `find()` queries.\n\ne.g. `?where={\"name\":{\"contains\":\"theodore\"}}`"
+      },
+      "LimitQueryParam": {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        },
+        "description": "The maximum number of records to send back (useful for pagination). Defaults to 30."
+      },
+      "SkipQueryParam": {
+        "in": "query",
+        "name": "skip",
+        "required": false,
+        "schema": {
+          "type": "integer"
+        },
+        "description": "The number of records to skip (useful for pagination)."
+      },
+      "SortQueryParam": {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The sort order. By default, returned records are sorted by primary key value in ascending order.\n\ne.g. `?sort=lastName%20ASC`"
+      }
+    }
+  },
+  "paths": {
+    "/api/access-tokens": {
+      "post": {
+        "summary": "/api/access-tokens",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "emailOrUsername",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/verify-user": {
+      "post": {
+        "summary": "/api/verify-user",
+        "tags": [
+          "verify"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/verify-google": {
+      "post": {
+        "summary": "/api/verify-google",
+        "tags": [
+          "google"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "tokenId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/register": {
+      "post": {
+        "summary": "/api/register",
+        "tags": [
+          "register"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]+((_|\\.)?[a-zA-Z0-9])*$",
+              "nullable": true,
+              "maxLength": 16,
+              "minLength": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "subscribeToOwnCards",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "summary": "/api/users",
+        "tags": [
+          "index"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The requested resource"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "/api/users",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "roleId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]+((_|\\.)?[a-zA-Z0-9])*$",
+              "nullable": true,
+              "maxLength": 16,
+              "minLength": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "subscribeToOwnCards",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/close": {
+      "delete": {
+        "summary": "/api/close",
+        "tags": [
+          "close"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "summary": "/api/projects",
+        "tags": [
+          "index"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The requested resource"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "/api/projects",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "dueDate",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/notifications": {
+      "get": {
+        "summary": "/api/notifications",
+        "tags": [
+          "index"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The requested resource"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/me": {
+      "get": {
+        "summary": "/api/users/me",
+        "tags": [
+          "show"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The requested resource"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/users/{id}": {
+      "patch": {
+        "summary": "/api/users/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "isAdmin",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "avatarUrl",
+            "required": false,
+            "schema": {}
+          },
+          {
+            "in": "query",
+            "name": "phone",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "organization",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "subscribeToOwnCards",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/users/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/projects/{id}": {
+      "patch": {
+        "summary": "/api/projects/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "background",
+            "required": false,
+            "schema": {}
+          },
+          {
+            "in": "query",
+            "name": "backgroundImage",
+            "required": false,
+            "schema": {}
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/projects/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/project-memberships/{id}": {
+      "delete": {
+        "summary": "/api/project-memberships/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/boards/{id}": {
+      "get": {
+        "summary": "/api/boards/{id}",
+        "tags": [
+          "show"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "/api/boards/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/boards/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/labels/{id}": {
+      "patch": {
+        "summary": "/api/labels/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "color",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "berry-red",
+                "pumpkin-orange",
+                "lagoon-blue",
+                "pink-tulip",
+                "light-mud",
+                "orange-peel",
+                "bright-moss",
+                "antique-blue",
+                "dark-granite",
+                "lagune-blue",
+                "sunny-grass",
+                "morning-sky",
+                "light-orange",
+                "midnight-blue",
+                "tank-green",
+                "gun-metal",
+                "wet-moss",
+                "red-burgundy",
+                "light-concrete",
+                "apricot-red",
+                "desert-sand",
+                "navy-blue",
+                "egg-yellow",
+                "coral-green",
+                "light-cocoa"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/labels/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/lists/{id}": {
+      "patch": {
+        "summary": "/api/lists/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/lists/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{id}": {
+      "get": {
+        "summary": "/api/cards/{id}",
+        "tags": [
+          "show"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "/api/cards/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "boardId",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "listId",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "coverAttachmentId",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "dueDate",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "timer",
+            "required": false,
+            "schema": {}
+          },
+          {
+            "in": "query",
+            "name": "isSubscribed",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/cards/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/tasks/{id}": {
+      "patch": {
+        "summary": "/api/tasks/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "isCompleted",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/tasks/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/attachments/{id}": {
+      "patch": {
+        "summary": "/api/attachments/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/attachments/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/comment-actions/{id}": {
+      "patch": {
+        "summary": "/api/comment-actions/{id}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "text",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/comment-actions/{id}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/notifications/{ids}": {
+      "patch": {
+        "summary": "/api/notifications/{ids}",
+        "tags": [
+          "update"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "ids",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+(,[0-9]+)*$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "isRead",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested resource"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users/{id}/email": {
+      "patch": {
+        "summary": "/api/users/{id}/email",
+        "tags": [
+          "update-email"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "in": "query",
+            "name": "currentPassword",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users/{id}/password": {
+      "patch": {
+        "summary": "/api/users/{id}/password",
+        "tags": [
+          "update-password"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "currentPassword",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users/{id}/username": {
+      "patch": {
+        "summary": "/api/users/{id}/username",
+        "tags": [
+          "update-username"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "username",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9]+((_|\\.)?[a-zA-Z0-9])*$",
+              "nullable": true,
+              "maxLength": 16,
+              "minLength": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "currentPassword",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/users/{id}/avatar": {
+      "post": {
+        "summary": "/api/users/{id}/avatar",
+        "tags": [
+          "update-avatar"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/projects/{id}/background-image": {
+      "post": {
+        "summary": "/api/projects/{id}/background-image",
+        "tags": [
+          "update-background-image"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/memberships": {
+      "post": {
+        "summary": "/api/projects/{projectId}/memberships",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/projects/{projectId}/boards": {
+      "post": {
+        "summary": "/api/projects/{projectId}/boards",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "kanban",
+                "collection"
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/boards/{boardId}/labels": {
+      "post": {
+        "summary": "/api/boards/{boardId}/labels",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "boardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "color",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "berry-red",
+                "pumpkin-orange",
+                "lagoon-blue",
+                "pink-tulip",
+                "light-mud",
+                "orange-peel",
+                "bright-moss",
+                "antique-blue",
+                "dark-granite",
+                "lagune-blue",
+                "sunny-grass",
+                "morning-sky",
+                "light-orange",
+                "midnight-blue",
+                "tank-green",
+                "gun-metal",
+                "wet-moss",
+                "red-burgundy",
+                "light-concrete",
+                "apricot-red",
+                "desert-sand",
+                "navy-blue",
+                "egg-yellow",
+                "coral-green",
+                "light-cocoa"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/boards/{boardId}/lists": {
+      "post": {
+        "summary": "/api/boards/{boardId}/lists",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "boardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/boards/{boardId}/cards": {
+      "get": {
+        "summary": "/api/boards/{boardId}/cards",
+        "tags": [
+          "index"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "boardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "beforeId",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "/api/boards/{boardId}/cards",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "boardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "listId",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "position",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "in": "query",
+            "name": "dueDate",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "timer",
+            "required": false,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{cardId}/memberships": {
+      "post": {
+        "summary": "/api/cards/{cardId}/memberships",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/cards/{cardId}/memberships",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{cardId}/labels": {
+      "post": {
+        "summary": "/api/cards/{cardId}/labels",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "labelId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{cardId}/tasks": {
+      "post": {
+        "summary": "/api/cards/{cardId}/tasks",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "isCompleted",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{cardId}/attachments": {
+      "post": {
+        "summary": "/api/cards/{cardId}/attachments",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "requestId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{cardId}/actions": {
+      "get": {
+        "summary": "/api/cards/{cardId}/actions",
+        "tags": [
+          "index"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "beforeId",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/cards/{cardId}/comment-actions": {
+      "post": {
+        "summary": "/api/cards/{cardId}/comment-actions",
+        "tags": [
+          "create"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "query",
+            "name": "text",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/cards/{cardId}/labels/{labelId}": {
+      "delete": {
+        "summary": "/api/cards/{cardId}/labels/{labelId}",
+        "tags": [
+          "delete"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "cardId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          },
+          {
+            "in": "path",
+            "name": "labelId",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]+$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    },
+                    {
+                      "type": "string",
+                      "description": "Success"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  }
+}

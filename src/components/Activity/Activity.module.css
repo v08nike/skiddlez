@@ -1,0 +1,9 @@
+:global(#app) select {
+  background-color: #FF8C00;
+  color: #FEFEFE;
+  font-size: 11px;
+  padding: 3px;
+  border-color: black;
+  border-radius: 4px;
+}
+/*# sourceMappingURL=Activity.module.css.map */

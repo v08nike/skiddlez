@@ -1,0 +1,35 @@
+:global(#app) .controls {
+  margin-top: 4px;
+}
+
+:global(#app) .field {
+  border: none;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 #ccc;
+          box-shadow: 0 1px 0 #ccc;
+  color: #333;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+:global(#app) .field:focus {
+  border-color: #298fca;
+  -webkit-box-shadow: 0 0 2px #298fca;
+          box-shadow: 0 0 2px #298fca;
+}
+
+:global(#app) .submitButton {
+  min-height: 30px;
+  vertical-align: top;
+}
+
+:global(#app) .wrapper {
+  background: #e2e4e6;
+  border-radius: 3px;
+  padding: 4px;
+  -webkit-transition: opacity 40ms ease-in;
+  transition: opacity 40ms ease-in;
+  width: 272px;
+}
+/*# sourceMappingURL=ListAdd.module.css.map */

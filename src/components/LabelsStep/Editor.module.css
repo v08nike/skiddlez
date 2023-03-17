@@ -1,0 +1,52 @@
+@charset "UTF-8";
+:global(#app) .colorButton {
+  float: left;
+  height: 40px;
+  margin: 4px;
+  padding: 0;
+  position: relative;
+  width: 49.6px;
+}
+
+:global(#app) .colorButton:hover {
+  opacity: 0.9;
+}
+
+:global(#app) .colorButtonActive:before {
+  bottom: 3px;
+  color: #ffffff;
+  content: "Г";
+  font-size: 18px;
+  line-height: 36px;
+  position: absolute;
+  right: 6px;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  top: 0;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  width: 36px;
+}
+
+:global(#app) .colorButtons {
+  margin: -4px;
+  padding-bottom: 16px;
+}
+
+:global(#app) .colorButtons:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+:global(#app) .field {
+  margin-bottom: 8px;
+}
+
+:global(#app) .text {
+  color: #444444;
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 6px;
+}
+/*# sourceMappingURL=Editor.module.css.map */

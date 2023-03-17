@@ -1,0 +1,95 @@
+:global(#app) .button {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin: 0;
+  min-height: auto;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  width: 28px;
+}
+
+:global(#app) .button:hover {
+  background: rgba(9, 30, 66, 0.08);
+}
+
+:global(#app) .checkboxWrapper {
+  display: inline-block;
+  padding: 10px 15px 0px 8px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  vertical-align: top;
+  z-index: 2000;
+  line-height: 1;
+}
+
+:global(#app) .content {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 8px;
+  padding: 4px;
+}
+
+:global(#app) .content button {
+  padding: 0rem;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  display: none;
+}
+
+:global(#app) .content button i {
+  font-size: 12px;
+  color: #0D3A52;
+}
+
+:global(#app) .content:hover {
+  background: rgba(9, 30, 66, 0.04);
+}
+
+:global(#app) .content:hover button {
+  display: block;
+}
+
+:global(#app) .content:hover .target {
+  opacity: 1;
+}
+
+:global(#app) .task {
+  display: inline-block;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  vertical-align: top;
+  width: 100%;
+}
+
+:global(#app) .taskCompleted {
+  text-decoration: line-through;
+}
+
+:global(#app) .text {
+  background: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  width: 100%;
+}
+
+:global(#app) .wrapper {
+  border-radius: 3px;
+  position: relative;
+  -webkit-transition: all 0.14s ease-in;
+  transition: all 0.14s ease-in;
+  width: 100%;
+}
+/*# sourceMappingURL=Item.module.css.map */

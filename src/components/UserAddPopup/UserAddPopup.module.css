@@ -1,0 +1,15 @@
+:global(#app) .field {
+  margin-bottom: 8px;
+}
+
+:global(#app) .text {
+  color: #444444;
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 6px;
+}
+
+:global(#app) .addButton {
+  position: relative;
+}
+/*# sourceMappingURL=UserAddPopup.module.css.map */

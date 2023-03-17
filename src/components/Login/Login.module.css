@@ -1,0 +1,66 @@
+:global(#app) .cover {
+  background: url("../../assets/images/cover.jpg") center/cover;
+}
+
+:global(#app) .descriptionSubtitle {
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 8px;
+}
+
+:global(#app) .descriptionTitle {
+  font-size: 52px;
+  margin-bottom: 8px;
+}
+
+:global(#app) .descriptionWrapper {
+  padding: 60px 0 0 80px;
+  position: relative;
+}
+
+:global(#app) .descriptionWrapperOverlay {
+  background: rgba(33, 33, 33, 0.5);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+:global(#app) .formTitle {
+  font-size: 36px;
+  font-weight: normal;
+  margin-bottom: 32px;
+}
+
+:global(#app) .fullHeight {
+  height: 100%;
+}
+
+:global(#app) .fullHeightPaddingFix {
+  height: calc(100% + 1rem);
+}
+
+:global(#app) .inputLabel {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+:global(#app) .inputWrapper {
+  margin-bottom: 16px;
+}
+
+:global(#app) .loginWrapper {
+  margin: 0 auto;
+  max-width: 440px;
+  padding: 0 20px;
+}
+
+:global(#app) .wrapper {
+  background: #fff;
+}
+/*# sourceMappingURL=Login.module.css.map */

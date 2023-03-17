@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,OADM,CAAA,IAAI,EACV,QAAQ,CAAC;EACP,KAAK,EAAE,OAAO;EACd,cAAc,EAAE,GAAG;EACnB,YAAY,EAAE,GAAG;CAClB",
+    "sources": [
+        "DeleteStep.module.scss"
+    ],
+    "names": [],
+    "file": "DeleteStep.module.css"
+}

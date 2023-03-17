@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,OADM,CAAA,IAAI,EACV,KAAK,CAAC;EACJ,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,iBAAiB;CACzB;;AAJH,AAME,OANM,CAAA,IAAI,EAMV,SAAS,CAAC;EACR,MAAM,EAAE,CAAC;EACT,YAAY,EAAE,IAAI;CACnB",
+    "sources": [
+        "UserPopup.module.scss"
+    ],
+    "names": [],
+    "file": "UserPopup.module.css"
+}

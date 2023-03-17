@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,OADM,CAAA,IAAI,EACV,QAAQ,CAAC;EACP,MAAM,EAAE,IAAI;EACZ,QAAQ,EAAE,KAAK;EACf,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,EAAE;EACX,IAAI,EAAC,IAAI;EACT,GAAG,EAAC,IAAI;CACT",
+    "sources": [
+        "Background.module.scss"
+    ],
+    "names": [],
+    "file": "Background.module.css"
+}

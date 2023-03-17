@@ -1,0 +1,6 @@
+:global(#app) .wrapper {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+/*# sourceMappingURL=PreferencesPane.module.css.map */

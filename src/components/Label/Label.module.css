@@ -1,0 +1,59 @@
+:global(#app) {
+  /* Sizes */
+}
+
+:global(#app) .button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  outline: none;
+  padding: 0;
+}
+
+:global(#app) .wrapper {
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-weight: 400;
+  outline: none;
+}
+
+:global(#app) .wrapperNameless {
+  width: 40px;
+}
+
+:global(#app) .wrapperHoverable:hover {
+  opacity: 0.75;
+}
+
+:global(#app) .wrapperTiny {
+  font-size: 12px;
+  max-width: 176px;
+  line-height: 0px;
+  padding: 0 4px;
+}
+
+:global(#app) .wrapperSmall {
+  width: 2rem;
+  height: 0.75rem;
+  border-radius: 3px;
+}
+
+:global(#app) .wrapperSmall span {
+  display: none;
+}
+
+:global(#app) .wrapperMedium {
+  width: 24px;
+  height: 8px;
+  border-radius: 3px;
+}
+
+:global(#app) .wrapperMedium span {
+  display: none;
+}
+/*# sourceMappingURL=Label.module.css.map */

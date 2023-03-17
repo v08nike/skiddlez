@@ -1,0 +1,8 @@
+:global(#app) .deleteButton {
+  bottom: 12px;
+  -webkit-box-shadow: 0 1px 0 #cbcccc;
+          box-shadow: 0 1px 0 #cbcccc;
+  position: absolute;
+  right: 9px;
+}
+/*# sourceMappingURL=EditStep.module.css.map */

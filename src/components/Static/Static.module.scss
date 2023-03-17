@@ -1,0 +1,37 @@
+:global(#app) {
+  .board {
+    flex: 1;
+    width: 100%;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .message {
+    align-content: space-between;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .messageTitle {
+    font-size: 32px;
+    margin: 24px 0 8px;
+  }
+
+  .messageContent {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 4px 0 0;
+    text-align: center;
+  }
+
+  .root {
+    flex: 1;
+    width: 100%;
+  }
+}

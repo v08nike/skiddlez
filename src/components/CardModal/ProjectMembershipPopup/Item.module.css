@@ -1,0 +1,43 @@
+@charset "UTF-8";
+:global(#app) .menuItem {
+  display: block;
+  margin: 0;
+  padding: 4px;
+}
+
+:global(#app) .menuItemActive {
+  background: transparent;
+}
+
+:global(#app) .menuItemActive:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+:global(#app) .menuItemText {
+  display: inline-block;
+  line-height: 32px;
+  width: calc(100% - 40px);
+}
+
+:global(#app) .menuItemTextActive:before {
+  bottom: 2px;
+  color: #798d99;
+  content: "Г";
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 36px;
+  position: absolute;
+  right: 2px;
+  text-align: center;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  width: 36px;
+}
+
+:global(#app) .user {
+  display: inline-block;
+  line-height: 32px;
+  padding-right: 8px;
+  width: 40px;
+}
+/*# sourceMappingURL=Item.module.css.map */

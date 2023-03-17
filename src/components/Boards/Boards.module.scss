@@ -1,0 +1,148 @@
+:global(#app) {
+  .addButton {
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #131419;
+    background-color: #EBECF0;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    &:hover {
+      background: rgba(34, 36, 38, 0.3);
+    }
+  }
+
+  .editButton {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 32px;
+    margin-right: 0;
+    opacity: 1;
+    padding: 0;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    a {
+      color: #fff;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    i {
+      color: transparent;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      i {
+        color: #fff;
+      }
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  .link {
+    color: #636469;
+    display: block;
+    line-height: 20px;
+    padding: 10px 34px 6px 14px;
+    text-overflow: ellipsis;
+    border: 1px solid #636469;
+    border-radius: 3px 3px 0px 0px;
+    max-width: 400px;
+    overflow: hidden;
+  }
+
+  .tab {
+    border-radius: 3px 3px 0 0;
+    min-width: 100px;
+    position: relative;
+    transition: all 0.1s ease;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    a {
+      color: #636469;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    &:hover {
+      background: #636469;
+      a {
+        color: #fff;
+      }
+
+      .target {
+        opacity: 1;
+      }
+    }
+  }
+
+  .bg-dark .tab a {
+    color: #fff;
+  }
+
+  .tabActive {
+    background: #636469;
+    a {
+      color: #FFF;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    &:hover {
+      background: #636469;
+    }
+  }
+
+  .tabWrapper {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .tabs {
+    display: flex;
+    height: 38px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .tabsWrapper {
+    display: flex;
+    flex: 0 0 auto;
+    height: 56px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+
+    &:hover {
+      height: 38px;
+    }
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+    }
+  }
+
+  .board-wrapper {
+    border-bottom: 2px solid #636469;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    height: 38px;
+    overflow: hidden;
+
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+}

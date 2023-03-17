@@ -1,0 +1,24 @@
+:global(#app) .field {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #212121;
+  font-size: 16px;
+  font-weight: 700;
+  overflow: hidden;
+  padding: 0rem;
+  padding: 9px 0rem;
+  resize: none;
+  width: 100%;
+}
+
+:global(#app) .field:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  padding: 9px 1rem;
+  outline: 0;
+}
+/*# sourceMappingURL=NameField.module.css.map */

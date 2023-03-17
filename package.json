@@ -1,0 +1,134 @@
+{
+  "name": "planka-client",
+  "private": true,
+  "scripts": {
+    "build": "react-scripts  --openssl-legacy-provider build",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext js,jsx src",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "parser": "babel-eslint",
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "airbnb",
+      "airbnb/hooks",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "src/setupTests.js",
+            "**/*.test.js",
+            "**/*.js"
+          ]
+        }
+      ],
+      "prettier/prettier": 0
+    }
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@hookform/resolvers": "^2.9.7",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.94",
+    "@mui/material": "^5.10.0",
+    "@mui/styled-engine-sc": "^5.10.0",
+    "axios": "^0.27.2",
+    "classnames": "^2.2.6",
+    "connected-react-router": "^6.9.3",
+    "date-fns": "^2.23.0",
+    "dequal": "^2.0.2",
+    "framer-motion": "^4.1.17",
+    "history": "^4.10.1",
+    "i18next": "^20.3.5",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "initials": "^3.1.2",
+    "javascript-time-ago": "^2.3.10",
+    "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.20",
+    "mapbox-gl": "^2.9.2",
+    "moment": "^2.29.1",
+    "numeral": "^2.0.6",
+    "planka": "file:..",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-accessible-dropdown-menu-hook": "^3.2.0",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-countdown-circle-timer": "^2.5.4",
+    "react-datepicker": "^4.6.0",
+    "react-dom": "^17.0.1",
+    "react-dropzone": "^11.3.4",
+    "react-elastic-carousel": "^0.11.5",
+    "react-google-login": "^5.2.2",
+    "react-helmet-async": "^1.3.0",
+    "react-i18next": "^11.11.4",
+    "react-input-mask": "^2.0.4",
+    "react-lazy-load-image-component": "^1.5.5",
+    "react-markdown": "^6.0.3",
+    "react-modal": "^3.14.3",
+    "react-moment": "^1.1.1",
+    "react-quill": "^2.0.0",
+    "react-redux": "^7.2.4",
+    "react-responsive": "^9.0.0-beta.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-spring": "^9.3.0",
+    "react-textarea-autosize": "^8.3.3",
+    "redux": "^4.1.0",
+    "redux-logger": "^3.0.6",
+    "redux-orm": "^0.16.2",
+    "redux-saga": "^1.1.3",
+    "remark-gfm": "^1.0.0",
+    "reselect": "^4.0.0",
+    "sails.io.js": "^1.2.1",
+    "sass": "^1.52.3",
+    "semantic-ui-react": "^2.0.4",
+    "simplebar-react": "^2.4.1",
+    "socket.io-client": "^2.3.1",
+    "styled-components": "^5.3.5",
+    "react-hook-form": "^7.34.1",
+    "validator": "^13.6.0",
+    "whatwg-fetch": "^3.5.0",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@iconify/react": "^3.2.2",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
+    "chai": "^4.3.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest-enzyme": "^7.1.2",
+    "prettier": "2.3.2",
+    "react-test-renderer": "^17.0.1"
+  }
+}

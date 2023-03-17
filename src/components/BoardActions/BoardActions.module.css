@@ -1,0 +1,14 @@
+:global(#app) .action {
+  margin-right: 20px;
+}
+
+:global(#app) .actions {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 20px;
+}
+/*# sourceMappingURL=BoardActions.module.css.map */

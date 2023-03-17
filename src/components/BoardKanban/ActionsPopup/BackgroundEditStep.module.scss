@@ -1,0 +1,66 @@
+:global(#app) {
+  .action {
+    border: none;
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.3s ease;
+    width: 100%;
+  }
+
+  .actionButton {
+    background: transparent;
+    font-weight: normal;
+    line-height: 24px;
+    padding: 6px 12px;
+    width: 100%;
+  }
+
+  .gradientButton {
+    float: left;
+    height: 40px;
+    margin: 4px;
+    padding: 0;
+    position: relative;
+    width: 49.605px;
+  }
+
+  .gradientButtonActive:before {
+    bottom: 3px;
+    color: #ffffff;
+    content: "Г";
+    font-size: 18px;
+    line-height: 36px;
+    position: absolute;
+    right: 6px;
+    text-align: center;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    top: 0;
+    transform: rotate(-135deg);
+    width: 36px;
+  }
+
+  .gradientButtons {
+    padding-bottom: 8px;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+  .image {
+    cursor: pointer;
+    margin-bottom: 8px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .imageLabel {
+    border-color: rgba(29, 46, 63, 0.8);
+  }
+}

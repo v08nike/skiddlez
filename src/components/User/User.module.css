@@ -1,0 +1,114 @@
+:global(#app) {
+  /* Sizes */
+  /* Backgrounds */
+}
+
+:global(#app) .button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  padding: 0;
+}
+
+:global(#app) .initials {
+  margin: 0 auto;
+  text-transform: capitalize;
+}
+
+:global(#app) .wrapper {
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  line-height: 1;
+  outline: none;
+  text-align: center;
+  vertical-align: top;
+}
+
+:global(#app) .wrapperHoverable:hover {
+  opacity: 0.75;
+}
+
+:global(#app) .wrapperTiny {
+  font-size: 12px;
+  height: 22px;
+  width: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+:global(#app) .wrapperTiny span {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+:global(#app) .wrapperSmall {
+  font-size: 12px;
+  font-weight: 400;
+  height: 28px;
+  padding: 8px 0;
+  width: 28px;
+}
+
+:global(#app) .wrapperMedium {
+  font-size: 14px;
+  font-weight: 500;
+  height: 32px;
+  padding: 10px 0;
+  width: 32px;
+}
+
+:global(#app) .wrapperLarge {
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  padding: 12px 0 10px;
+  width: 36px;
+}
+
+:global(#app) .wrapperMassive {
+  font-size: 36px;
+  font-weight: 500;
+  height: 100px;
+  padding: 32px 0 10px;
+  width: 100px;
+}
+
+:global(#app) .backgroundEmerald {
+  background: #2ecc71;
+}
+
+:global(#app) .backgroundPeterRiver {
+  background: #3498db;
+}
+
+:global(#app) .backgroundWisteria {
+  background: #8e44ad;
+}
+
+:global(#app) .backgroundCarrot {
+  background: #e67e22;
+}
+
+:global(#app) .backgroundAlizarin {
+  background: #e74c3c;
+}
+
+:global(#app) .backgroundTurquoise {
+  background: #1abc9c;
+}
+
+:global(#app) .backgroundMidnightBlue {
+  background: #2c3e50;
+}
+/*# sourceMappingURL=User.module.css.map */

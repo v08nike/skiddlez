@@ -1,0 +1,48 @@
+:global(#app) {
+  /* Sizes */
+}
+
+:global(#app) .button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  padding: 0;
+}
+
+:global(#app) .wrapper {
+  background: #dce0e4;
+  border: none;
+  border-radius: 3px;
+  color: #6a808b;
+  display: inline-block;
+  outline: none;
+  text-align: left;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  vertical-align: top;
+}
+
+:global(#app) .wrapperHoverable:hover {
+  background: #d2d8dc;
+  color: #17394d;
+}
+
+:global(#app) .wrapperTiny {
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0px 6px;
+}
+
+:global(#app) .wrapperSmall {
+  font-size: 12px;
+  line-height: 20px;
+  padding: 2px 6px;
+}
+
+:global(#app) .wrapperMedium {
+  line-height: 20px;
+  padding: 6px 12px;
+}
+/*# sourceMappingURL=DueDate.module.css.map */

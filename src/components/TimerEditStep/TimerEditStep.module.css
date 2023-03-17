@@ -1,0 +1,38 @@
+:global(#app) .deleteButton {
+  bottom: 12px;
+  -webkit-box-shadow: 0 1px 0 #cbcccc;
+          box-shadow: 0 1px 0 #cbcccc;
+  position: absolute;
+  right: 9px;
+}
+
+:global(#app) .fieldBox {
+  display: inline-block;
+  margin: 0 4px 12px;
+  width: calc(33.3333% - 22px);
+}
+
+:global(#app) .fieldWrapper {
+  margin: 0 -4px;
+}
+
+:global(#app) .iconButton {
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin: 0 4px 0 1px;
+  width: 36px;
+}
+
+:global(#app) .iconButton:hover {
+  background: #e9e9e9;
+}
+
+:global(#app) .text {
+  color: #444444;
+  font-size: 12px;
+  font-weight: bold;
+  padding-bottom: 4px;
+  padding-left: 2px;
+}
+/*# sourceMappingURL=TimerEditStep.module.css.map */

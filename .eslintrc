@@ -1,0 +1,112 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "requireConfigFile": false,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "impliedStrict": true
+    }
+  },
+  "rules": {
+    "new-cap": [
+      0,
+      {
+        "capIsNewExceptionPattern": "^(Immutable.)?Record$"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/no-multi-comp": 0,
+    "import/default": 0,
+    "import/no-duplicates": 0,
+    "import/named": 0,
+    "import/namespace": 0,
+    "import/no-unresolved": 0,
+    "import/no-named-as-default": 2,
+    "comma-dangle": 0, // not sure why airbnb turned this on. gross!
+    "indent": "off",
+    "no-console": 0,
+    "no-alert": 0,
+    "linebreak-style": 0,
+    "no-shadow": 0,
+    "react/jsx-key": 1,
+    "import/no-cycle": 0,
+    "arrow-body-style": 0,
+    "react/prop-types": 0,
+    "consistent-return": 1,
+    "no-param-reassign": 0,
+    "no-use-before-define": 0,
+    "no-underscore-dangle": 0,
+    "react/button-has-type": 1,
+    "react/no-children-prop": 0,
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/no-array-index-key": 0,
+    "react/no-unused-prop-types": 1,
+    "react-hooks/rules-of-hooks": 2,
+    "no-promise-executor-return": 0,
+    "no-unsafe-optional-chaining": 0,
+    "react/require-default-props": 0,
+    "react/no-unescaped-entities": 0,
+    "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-no-useless-fragment": 0,
+    "react/jsx-curly-brace-presence": 0,
+    "react/destructuring-assignment": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/no-unstable-nested-components": 0,
+    "react/function-component-definition": 0,
+    "react/jsx-no-constructed-context-values": 0,
+    "no-unused-vars": [
+      1,
+      {
+        "ignoreRestSiblings": false
+      }
+    ]
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "react-hooks",
+    "prettier",
+    "import"
+  ],
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": [
+        "node_modules",
+        "src"
+      ]
+    }
+  },
+  "globals": {
+    "__DEVELOPMENT__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DISABLE_SSR__": true,
+    "__DEVTOOLS__": true,
+    "socket": true,
+    "webpackIsomorphicTools": true
+  }
+}

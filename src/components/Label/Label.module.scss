@@ -1,0 +1,55 @@
+:global(#app) {
+  .button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 100%;
+    outline: none;
+    padding: 0;
+  }
+
+  .wrapper {
+    border-radius: 5px 5px 5px 5px;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400;
+    outline: none;
+  }
+
+  .wrapperNameless{
+    width: 40px;
+  }
+
+  .wrapperHoverable:hover {
+    opacity: 0.75;
+  }
+
+  /* Sizes */
+
+  .wrapperTiny {
+    font-size: 12px;
+    max-width: 176px;
+    line-height: 0px;
+    padding: 0 4px;
+  }
+
+  .wrapperSmall {
+    width: 2rem;
+    height: 0.75rem;
+    border-radius: 3px;
+    span {
+      display: none;
+    }
+  }
+
+  .wrapperMedium {
+    width: 24px;
+    height: 8px;
+    border-radius: 3px;
+    span {
+      display: none;
+    }
+  }
+}
